@@ -1,11 +1,14 @@
+import SkeletonCard from "@/components/SkeletonCard";
 import React from "react";
 
-const loading = () => {
+export default function loading() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      +++++++++++++++++++++++++++++
-    </div>
+    <main>
+      <div className="grid grid-cols-3 gap-8">
+        {"abcdefghi".split("").map((i) => (
+          <SkeletonCard key={i} />
+        ))}
+      </div>
+    </main>
   );
-};
-
-export default loading;
+}

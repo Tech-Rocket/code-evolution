@@ -23,6 +23,8 @@ interface RecipeTypes {
 
 async function getRecipes(): Promise<RecipeTypes[]> {
   const res = await fetch("http://localhost:4000/recipes");
+
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   return res.json();
 }
 
@@ -49,7 +51,7 @@ export default async function Home() {
       </CardContent>
       <CardFooter className="flex justify-between font-medium">
         <Button>View Recipe</Button>
-        {recipe.vegan ? <Badge>Vegan!</Badge> : null}
+        {recipe.vegan ? <Badge variant="secondary">Vegan!</Badge> : null}
       </CardFooter>
     </Card>
   ));

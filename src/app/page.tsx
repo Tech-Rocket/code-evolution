@@ -1,65 +1,15 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
-import { buttonVariants } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
-
-interface RecipeTypes {
-  title: string;
-  image: string;
-  time: number;
-  description: string;
-  vegan: boolean;
-  id: string;
-}
-
-async function getRecipes(): Promise<RecipeTypes[]> {
-  const res = await fetch("http://localhost:4000/recipes");
-
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  return res.json();
-}
-
-export default async function Home() {
-  const recipes = await getRecipes();
-
-  const recipeElement = recipes.map((recipe) => (
-    <Card key={recipe.id} className="flex flex-col justify-between">
-      <CardHeader className="flex-row gap-4 items-center">
-        <Avatar>
-          <AvatarImage src={`/img/${recipe.image}`} alt="recipe image" />
-          <AvatarFallback>
-            {recipe.title.slice(0, 2).toUpperCase()}
-          </AvatarFallback>
-        </Avatar>
-        <div>
-          <CardTitle>{recipe.title}</CardTitle>
-          <CardDescription>{recipe.time} mins to cook.</CardDescription>
-        </div>
-      </CardHeader>
-
-      <CardContent>
-        <p className="mt-3">{recipe.description}</p>
-      </CardContent>
-      <CardFooter className="flex justify-between font-medium">
-        <Button>View Recipe</Button>
-        {recipe.vegan ? <Badge variant="secondary">Vegan!</Badge> : null}
-      </CardFooter>
-    </Card>
-  ));
+export default function HomePage() {
   return (
-    <main>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {recipeElement}
+    <div>
+      <h1 className="text-3xl font-bold">Welcome home!</h1>
+      <div className="mt-4 flex gap-5">
+        <Link href="/blog">Blog page</Link>
+        <Link href="/products">Navigate to the products page</Link>
+        <Link href="/articles/breaking-news-123?lang=en">Read in English</Link>
+        <Link href="/articles/breaking-news-123?lang=fr">Read in French</Link>
       </div>
-    </main>
+    </div>
   );
 }

@@ -1,11 +1,14 @@
-export default function ProductReview() {
+export default function Review() {
   return (
-    <div>
-      <h1>Review Listing</h1>
-      <p>Reviews 1</p>
-      <p>Reviews 2</p>
-      <p>Reviews 3</p>
-      <p>Reviews 4</p>
+    <div className="font-semibold">
+      <h1 className="text-xl">Product reviews</h1>
+
+      <div className="mt-4">
+        <h4>Review 1</h4>
+        <h4>Review 2</h4>
+        <h4>Review 3</h4>
+        <h4>Review 4</h4>
+      </div>
     </div>
   );
 }

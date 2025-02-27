@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-export default function AuthLayout({
+export default function AuthTemplate({
   children,
 }: {
   children: React.ReactNode;
@@ -28,7 +28,7 @@ export default function AuthLayout({
           className="border border-gray-300 p-2.5 rounded-md shadow-sm"
         />
       </div>
-      <div className="my-6">
+      <div className="my-6 flex items-center gap-5">
         {navLinks.map((link) => {
           const isActive =
             pathname === link.href ||
@@ -38,7 +38,7 @@ export default function AuthLayout({
               key={link.id}
               className={`${
                 isActive ? "bg-black text-white border-none" : ""
-              } border border-gray-500 rounded-sm mx-4 py-2.5 px-6`}
+              } border border-gray-500 rounded-sm py-2.5 px-6`}
               href={link.href}
             >
               {link.name}

@@ -14,7 +14,7 @@ export default function ComplexDashboardLayout({
   return (
     <div>
       <div>{children}</div>
-      <div className="bg-gray-300 p-4  flex items-center gap-5">
+      <div className="bg-gray-300 p-4 flex items-center gap-5">
         <div>{users}</div>
         <div>{revenue}</div>
         <div>{notification}</div>

@@ -14,7 +14,7 @@ export const generateMetadata = async ({
     });
   });
   return {
-    title: `Product ${title}`,
+    title: `Product ${title }`,
   };
 };
 export default async function page({ params }: Props) {
